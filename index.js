@@ -1,12 +1,16 @@
-const express = require('express')
-const userRoute = require("./src/routes/user.route")
-
-
+const express = require('express');
 const app = express();
 
-app.use("/soma", userRoute);
 
-app.listen(3000);
+const userRoute = require("./src/routes/user.route");
+
+const port = 3000;
+
+
+app.use(express.json());
+app.use("/user", userRoute);
+
+app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
 
 
 
@@ -22,4 +26,3 @@ app.listen(3000);
   // Name - Um identificador da rota.
 
   // Function (Callback) - Responsavel por executar algum comando.
-  
